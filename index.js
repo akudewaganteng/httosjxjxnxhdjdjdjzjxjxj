@@ -27,7 +27,6 @@ const { googleImage } = require('./function/gimage.js')
 const { githubstalk } = require('./function/githubstalk.js') 
 const { shortUrl, shortUrl2 } = require('./function/tinyurl.js') 
 const { remini } = require('./function/remini.js')
-const { igdl } = require('./function/instagram.js') 
 const { chatbot } = require('./function/gpt.js')
 const { uploaderImg } = require('./function/uploadImage.js');
 const { tiktokdl } = require('./function/tiktok.js') 
@@ -234,19 +233,6 @@ const anu = await result.response.text()
             creator: global.creator,
             result: anu
         });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: "An error occurred while fetching data." });
-    }
-})
-
-app.get("/api/download/igdl", async (req, res) => {
-    const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
-
-    try {
-        var anu = await igdl(`${url}`)
-        res.json(anu)
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "An error occurred while fetching data." });
