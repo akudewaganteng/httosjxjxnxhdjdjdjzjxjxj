@@ -25,7 +25,6 @@ const { pindlVideo } = require('./function/pindl.js')
 const scp2 = require("imon-videos-downloader")
 const { googleImage } = require('./function/gimage.js') 
 const { githubstalk } = require('./function/githubstalk.js') 
-const { fbdl } = require('./function/facebook.js') 
 const { shortUrl, shortUrl2 } = require('./function/tinyurl.js') 
 const { remini } = require('./function/remini.js')
 const { igdl } = require('./function/instagram.js') 
@@ -235,24 +234,6 @@ const anu = await result.response.text()
             creator: global.creator,
             result: anu
         });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: "An error occurred while fetching data." });
-    }
-})
-
-
-app.get("/api/download/fbdl", async (req, res) => {
-    const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
-
-    try {
-        var anu = await fbdl(`${url}`)
-        res.json({
-        status: true, 
-        creator: global.creator, 
-        result: anu
-        })
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "An error occurred while fetching data." });
