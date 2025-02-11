@@ -106,7 +106,7 @@ res.sendFile(path.join(__dirname, 'dashboard.html'));
 
 app.get("/api/ai/openai-prompt", async (req, res) => {
     const { prompt, msg } = req.query;
-    if (!prompt || !msg) return res.json("Isi Parameternya!");
+    if (!prompt || !msg) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await groq(`${msg}`, `${prompt}`)
@@ -131,7 +131,7 @@ app.get("/api/ai/openai-prompt", async (req, res) => {
 
 app.get("/api/ai/openai", async (req, res) => {
     const { msg } = req.query;
-    if (!msg) return res.json("Isi Parameternya!");
+    if (!msg) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await groq(`${msg}`)
@@ -156,7 +156,7 @@ app.get("/api/ai/openai", async (req, res) => {
 
 app.get("/api/ai/gpt4", async (req, res) => {
     const { text } = req.query;
-    if (!text) return res.json("Isi Parameternya!");
+    if (!text) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await chatbot.send(`${text}`)
@@ -181,7 +181,7 @@ app.get("/api/ai/gpt4", async (req, res) => {
 
 app.get("/api/ai/gpt-3-5-turbo", async (req, res) => {
     const { text } = req.query;
-    if (!text) return res.json("Isi Parameternya!");
+    if (!text) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await chatbot.send(`${text}`, "gpt-3.5-turbo")
@@ -207,7 +207,7 @@ app.get("/api/ai/gpt-3-5-turbo", async (req, res) => {
 
 app.get("/api/ai/gemini", async (req, res) => {
     const { text } = req.query;
-    if (!text) return res.json("Isi Parameternya!");
+    if (!text) return res.json("Isi Fungsinya @tearsinsilencee");
 
 try {
 const { GoogleGenerativeAI } = require("@google/generative-ai");
@@ -241,7 +241,7 @@ const anu = await result.response.text()
 
 app.get("/api/download/tiktokdl", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await tiktokdl.fetchData(`${url}`)
@@ -259,7 +259,7 @@ app.get("/api/download/tiktokdl", async (req, res) => {
 
 app.get("/api/download/ytmp3", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await YtMp3(`${url}`)
@@ -278,7 +278,7 @@ app.get("/api/download/ytmp3", async (req, res) => {
 
 app.get("/api/download/ytmp4", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await YtMp4(`${url}`)
@@ -297,7 +297,7 @@ app.get("/api/download/ytmp4", async (req, res) => {
 
 app.get("/api/download/doodstream", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await doodS(`${url}`)
@@ -315,7 +315,7 @@ app.get("/api/download/doodstream", async (req, res) => {
 
 app.get("/api/download/soundcloud", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await souncloudDl.process(`${url}`)
@@ -332,7 +332,7 @@ app.get("/api/download/soundcloud", async (req, res) => {
 
 app.get("/api/download/gdrive", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await scp2.GDLink(`${url}`)
@@ -349,7 +349,7 @@ app.get("/api/download/gdrive", async (req, res) => {
 
 app.get("/api/download/pindlvid", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await pindlVideo(`${url}`)
@@ -366,7 +366,7 @@ app.get("/api/download/pindlvid", async (req, res) => {
 
 app.get("/api/download/capcut", async (req, res) => {
     const { url } = req.query;
-    if (!url) return res.json("Isi Parameternya!");
+    if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
 
     try {
         var anu = await scp2.capcut(`${url}`)
@@ -384,7 +384,7 @@ app.get("/api/download/capcut", async (req, res) => {
 app.get("/api/tools/remini", async (req, res) => {
     try {     
       const { url } = req.query
-      if (!url) return res.json("Isi Parameternya!");
+      if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
       const image = await getBuffer(url)
       if (!image) res.json("Error!");
       const result = await remini(image, "enhance")
@@ -399,7 +399,7 @@ app.get("/api/tools/remini", async (req, res) => {
 app.get("/api/tools/bratgenerator", async (req, res) => {
     try {     
       const { text } = req.query
-      if (!text) return res.json("Isi Parameternya!");
+      if (!text) return res.json("Isi Fungsinya @tearsinsilencee");
       const image = await getBuffer(`https://brat.caliphdev.com/api/brat?text=${text}`)
       if (!image) res.json("Error!")
       await res.set("Content-Type", "image/png")
@@ -413,7 +413,7 @@ app.get("/api/tools/bratgenerator", async (req, res) => {
 app.get("/api/tools/tinyurl", async (req, res) => {
     try {     
       const { url } = req.query
-      if (!url) return res.json("Isi Parameternya!");
+      if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
       if (!url.startsWith("https://")) res.json("Link tautan tidak valid!")
       const result = await shortUrl(url)
       if (!result) return res.json("Error!");
@@ -431,7 +431,7 @@ app.get("/api/tools/tinyurl", async (req, res) => {
 app.get("/api/tools/isgd", async (req, res) => {
     try {     
       const { url } = req.query
-      if (!url) return res.json("Isi Parameternya!");
+      if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
       if (!url.startsWith("https://")) res.json("Link tautan tidak valid!")
       const result = await shortUrl2(url)
       if (!result) return res.json("Error!");
@@ -449,7 +449,7 @@ app.get("/api/tools/isgd", async (req, res) => {
 app.get("/api/tools/tiktokstalk", async (req, res) => {
     try {     
       const { user } = req.query
-      if (!user) return res.json("Isi Parameternya!");
+      if (!user) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await stalk(user).then(res => res.data)
       if (!result) return res.json("Error!");
       let value = {
@@ -475,7 +475,7 @@ app.get("/api/tools/tiktokstalk", async (req, res) => {
 app.get("/api/tools/githubstalk", async (req, res) => {
     try {     
       const { user } = req.query
-      if (!user) return res.json("Isi Parameternya!");
+      if (!user) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await githubstalk(user).then(res => res)
       if (!result) return res.json("Error!");
       res.json({
@@ -505,7 +505,7 @@ app.post("/api/tools/upload", async (req, res) => {
 app.get("/api/pterodactyl/listpanel", async (req, res) => {
     try {     
 let { egg, nestid, loc, domain, ptla, ptlc } = req.query
-if (!egg || !nestid || !loc || !domain || !ptla || !ptlc) return res.json("Isi Parameternya!")
+if (!egg || !nestid || !loc || !domain || !ptla || !ptlc) return res.json("Isi Fungsinya @tearsinsilencee")
 domain = "https://" + domain
 let listnya = []
 let f = await fetch(domain + "/api/application/servers?page=1", {
@@ -555,7 +555,7 @@ result: listnya
 app.get("/api/search/pinterest", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await pinterest2(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -573,7 +573,7 @@ app.get("/api/search/pinterest", async (req, res) => {
 app.get("/api/search/bstation", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await BSearch(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -590,7 +590,7 @@ app.get("/api/search/bstation", async (req, res) => {
 app.get("/api/search/sfile", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       let result = await scp.search.sfile(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -607,7 +607,7 @@ app.get("/api/search/sfile", async (req, res) => {
 app.get("/api/search/happymod", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       let result = await scp.search.happymod(q)
       result = result.result.map((e) => {
       return { icon: e.thumb, name: e.title, link: e.link }
@@ -627,7 +627,7 @@ app.get("/api/search/happymod", async (req, res) => {
 app.get("/api/search/gimage", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await googleImage(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -645,7 +645,7 @@ app.get("/api/search/gimage", async (req, res) => {
 app.get("/api/search/ytsearch", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await Search(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -662,7 +662,7 @@ app.get("/api/search/ytsearch", async (req, res) => {
 app.get("/api/search/tiktoksearch", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await ttSearch(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -679,7 +679,7 @@ app.get("/api/search/tiktoksearch", async (req, res) => {
 app.get("/api/search/lyrics", async (req, res) => {
     try {     
       const { q } = req.query
-      if (!q) return res.json("Isi Parameternya!");
+      if (!q) return res.json("Isi Fungsinya @tearsinsilencee");
       const result = await lirikLagu(q)
       if (!result) return res.json("Error!");
       res.json({
@@ -696,7 +696,7 @@ app.get("/api/search/lyrics", async (req, res) => {
 app.get("/api/imagecreator/pornhub", async (req, res) => {
     try {     
       const { text1, text2 } = req.query
-      if (!text1 || !text2) return res.json("Isi Parameternya!");
+      if (!text1 || !text2) return res.json("Isi Fungsinya @tearsinsilencee");
       const image = await ephoto(text1, text2)
       if (!image) res.json("Error!")
       res.json({
@@ -713,7 +713,7 @@ app.get("/api/imagecreator/pornhub", async (req, res) => {
 app.get("/api/imagecreator/qc", async (req, res) => {
     try {     
       const { text, fotoUrl, nama } = req.query
-      if (!text || !nama || !fotoUrl) return res.json("Isi Parameternya!");
+      if (!text || !nama || !fotoUrl) return res.json("Isi Fungsinya @tearsinsilencee");
 const json = {
   "type": "quote",
   "format": "png",
