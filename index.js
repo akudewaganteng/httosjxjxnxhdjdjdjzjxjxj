@@ -28,6 +28,7 @@ const { githubstalk } = require('./function/githubstalk.js')
 const { shortUrl, shortUrl2 } = require('./function/tinyurl.js') 
 const { remini } = require('./function/remini.js')
 const { chatbot } = require('./function/gpt.js')
+const questions = require("./function/family100");
 const { uploaderImg } = require('./function/uploadImage.js');
 const { tiktokdl } = require('./function/tiktok.js') 
 const {
@@ -256,6 +257,28 @@ app.get("/api/download/tiktokdl", async (req, res) => {
         res.status(500).json({ error: "An error occurred while fetching data." });
     }
 })
+
+app.get("/api/game/family100", (req, res) => {
+    try {
+        if (questions.length === 0) {
+            throw new Error("No questions available");
+        }
+
+        const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+        
+        res.json({
+            status: true,
+            creator: global.creator,
+            result: {
+                question: randomQuestion.question,
+                answer: randomQuestion.answers
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "An error occurred while fetching data." });
+    }
+});
 
 app.get("/api/download/ytmp3", async (req, res) => {
     const { url } = req.query;
