@@ -26,6 +26,7 @@ const scp2 = require("imon-videos-downloader")
 const { googleImage } = require('./function/gimage.js') 
 const { githubstalk } = require('./function/githubstalk.js') 
 const { shortUrl, shortUrl2 } = require('./function/tinyurl.js') 
+const { spotifyDownload } = require('./function/spotify');
 const { remini } = require('./function/remini.js')
 const { chatbot } = require('./function/gpt.js')
 const questions = require("./function/family100");
@@ -72,8 +73,6 @@ app.get('/api/orkut/createpayment', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 })
-
-
 
 app.get('/api/orkut/cekstatus', async (req, res) => {
     const { merchant, keyorkut } = req.query;
@@ -278,6 +277,29 @@ app.get("/api/game/family100", (req, res) => {
         console.error(error);
         res.status(500).json({ error: "An error occurred while fetching data." });
     }
+});
+
+app.get('/api/download/spotify', async (req, res) => {
+  const { url } = req.query;
+
+  if (!url) return res.json("Isi Fungsinya @tearsinsilencee");
+
+  try {
+    const result = await spotifyDownload(url);
+
+    if (!result.status) {
+      return res.status(404).json({ status: false, message: "Music not found" });
+    }
+
+    res.json({
+      status: true,
+      creator: global.creator,
+      ...result
+    });
+  } catch (error) {
+    console.error('Error processing request:', error);
+    res.status(500).json({ error: error.message });
+  }
 });
 
 app.get("/api/download/ytmp3", async (req, res) => {
