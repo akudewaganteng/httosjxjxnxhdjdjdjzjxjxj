@@ -438,11 +438,11 @@ app.get("/api/tools/obfuscate", async (req, res) => {
     });
   }
 
-  if (userName) {
-    setUserName(userName);
-  }
-
   try {
+    if (userName) {
+      await setUserName(userName); // Menunggu proses setUserName selesai
+    }
+
     if (sourceUrl) {
       try {
         const response = await axios.get(sourceUrl);
