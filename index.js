@@ -427,7 +427,7 @@ app.get("/api/download/capcut", async (req, res) => {
     }
 });
 
-app.get("/api/tools/obfuscated", async (req, res) => {
+app.get("/api/tools/obfuscate", async (req, res) => {
   let { sourceCode, sourceUrl, userName, name } = req.query;
 
   if (!sourceCode && !sourceUrl) {
