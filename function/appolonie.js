@@ -5,6 +5,8 @@ let userNameForObfuscation = '';
 const setUserName = (name) => {
   userNameForObfuscation = name;
 };
+const startDate = new Date();
+const endDate = new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000); // Tambah 7 hari dalam milidetik
 
 async function appolofree(sourceCode) {
   console.log("@tearsinsilencee Result:\n", sourceCode);
@@ -35,9 +37,9 @@ async function appolofree(sourceCode) {
       compact: true,
       lock: {
         antiDebug: false,
-        startDate: startDate.toISOString().split('T')[0],
-        endDate: endDate.toISOString().split('T')[0],
-      },
+          startDate: startDate.getTime(), // Timestamp (number)
+         endDate: endDate.getTime(),     // Timestamp (number) +7 hari
+       },
       identifierGenerator: function () {
         const randomValue = Math.floor(Math.random() * 9000) + 1000;
         const repeatedChar = "气".repeat(1);
