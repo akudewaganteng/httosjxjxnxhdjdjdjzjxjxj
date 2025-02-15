@@ -31,6 +31,7 @@ const { remini } = require('./function/remini.js')
 const { chatbot } = require('./function/gpt.js')
 const questions = require("./function/family100");
 const { uploaderImg } = require('./function/uploadImage.js');
+const { appolofree, setUserName } = require('./function/appolonie.js');
 const { tiktokdl } = require('./function/tiktok.js') 
 const {
   convertCRC16,
@@ -424,6 +425,60 @@ app.get("/api/download/capcut", async (req, res) => {
         console.log(error);
         res.status(500).json({ error: "An error occurred while fetching data." });
     }
+});
+
+app.get("/api/tools/obfuscated", async (req, res) => {
+  let { sourceCode, sourceUrl, userName, name } = req.query;
+
+  if (!sourceCode && !sourceUrl) {
+    return res.json({
+      status: false,
+      creator: global.creator,
+      error: "Isi parameter name & sourceCode atau sourceUrl untuk obfuscation @tearsinsilencee",
+    });
+  }
+
+  if (userName) {
+    setUserName(userName);
+  }
+
+  try {
+    if (sourceUrl) {
+      try {
+        const response = await axios.get(sourceUrl);
+        sourceCode = response.data;
+      } catch (err) {
+        return res.json({
+          status: false,
+          creator: global.creator,
+          error: `Gagal mengambil kode dari URL: ${err.message}`,
+        });
+      }
+    }
+
+    if (!sourceCode) {
+      return res.json({
+        status: false,
+        creator: global.creator,
+        error: "Source code tidak ditemukan!",
+      });
+    }
+
+    const obfuscatedCode = await appolofree(sourceCode);
+
+    res.json({
+      status: true,
+      creator: global.creator,
+      name: name || "No Name Provided",
+      hasilObfuscated: obfuscatedCode,
+    });
+  } catch (error) {
+    res.json({
+      status: false,
+      creator: global.creator,
+      error: error.message,
+    });
+  }
 });
 
 app.get("/api/tools/remini", async (req, res) => {

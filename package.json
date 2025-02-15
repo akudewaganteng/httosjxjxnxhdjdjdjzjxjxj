@@ -1,5 +1,5 @@
 {
-  "name": "Skyzopedia",
+  "name": "Appolo",
   "description": "Rest Api",
   "version": "1.0.0",
   "main": "index.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Skyzopedia",
+  "author": "Appolo",
   "license": "MIT",
   "dependencies": {
     "@vreden/youtube_scraper": "^1.2.4",
@@ -16,6 +16,8 @@
     "body-parser": "^1.20.3",
     "caliph-api": "^1.0.1",
     "cheerio": "^1.0.0-rc.10",
+    "jscrambler": "^8.3.0",
+    "js-confuser": "2.0.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.21.1",
